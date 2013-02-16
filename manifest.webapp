@@ -1,0 +1,11 @@
+{
+  "name": "Gmail Web",
+  "description": "Load Gmail on the Web",
+  "launch_path": "/",
+  "icons": {
+    "32":  "/icons/gmail32.png",
+    "64":  "/icons/gmail64.png",
+    "128": "/icons/gmail128.png",
+    "256": "/icons/gmail256.png"
+  }
+}
