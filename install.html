@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Install Google Calendar</title>
+</head>
+<body>
+<img id="appicon" src="icons/gcal256.png" data-manifestpath="manifest.webapp"/>
+<script>
+var Apps = navigator.apps || navigator.Apps || navigator.mozApps;
+function installApp(manifesturl) {
+  if (!Apps) {
+    alert("Web アプリケーションがサポートされていません");
+  }
+  var request = Apps.install(manifesturl);
+  request.onsuccess = function() {
+    var app = this.result;
+    alert(app.manifest.name + 'をインストールしました。')
+  };
+  request.onerror = function() {
+    alert('インストールできませんでした: ' + this.error.name);
+  };
+}
+
+document.getElementById("appicon").addEventListener("click", function(event) {
+  var rootURL = location.protocol+"//"+location.host+(location.port?":"+location.port:"")+"/";
+  installApp(rootURL+this.dataset.manifestpath);
+}, false);
+</script>
+</body>
+</html>
